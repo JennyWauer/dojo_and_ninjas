@@ -30,7 +30,7 @@
             <label for="last_name">Last Name</label>
             <input type="text" name="last_name">
             <label for="dojo">Dojo</label>
-            <select name="dojo" placeholder="-select a dojo-">
+            <select name="dojo">
                 <option value="">-select a dojo-</option>
                 {% for dojo in dojo%}
                     <option value="{{ dojo.name }}">{{ dojo.name }}</option>
@@ -39,5 +39,17 @@
             <input type="submit" name="submit" value="Add">
         </form>
     </div>
+    <h1>All the Dojos</h1>
+    <ul>
+        {% for dojo in dojo %}
+        <li>Ninjas at the {{ dojo.name }} Dojo
+            <ul>
+                {% for ninja in dojo.ninjas.all %}
+                <li>{{ ninja.name }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
