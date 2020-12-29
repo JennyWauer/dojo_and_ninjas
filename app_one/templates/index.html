@@ -20,6 +20,20 @@
             <input type="submit" name="submit" value="Add">
         </form>
     </div>
-
+    <div class="ninja">
+        <h1>Add a Ninja</h1>
+        <form action="add_ninja" method="POST">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name">
+            <label for="dojo">Dojo</label>
+            <select name="dojo">
+                {% for dojo in dojo%}
+                    <option value="{{ dojo.name }}">{{ dojo.name }}</option>
+            </select>
+            <input type="submit" name="submit" value="Add">
+        </form>
+    </div>
 </body>
 </html>
