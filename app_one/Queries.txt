@@ -1,0 +1,45 @@
+Query: Create 3 new dojos
+Dojo.objects.create(name="Coding Dojo - Austin",city="Austin",state="TX")
+Dojo.objects.create(name="Coding Dojo - San Diego",city="San Diego",state="CA")
+Dojo.objects.create(name="Coding Dojo - Arlington",city="Arlington",state="VA")
+
+Query: Delete the 3 dojos you just created
+Dojo.objects.all().delete()
+
+Query: Create 3 more dojos  
+Dojo.objects.create(name="Coding Dojo - Austin",city="Austin",state="TX")
+Dojo.objects.create(name="Coding Dojo - San Diego",city="San Diego",state="CA")
+Dojo.objects.create(name="Coding Dojo - Arlington",city="Arlington",state="VA")
+
+Query: Create 3 ninjas that belong to the first dojo
+Ninja.objects.create(dojo=Dojo.objects.get(id=5),first_name="Jane",last_name="Allen")
+Ninja.objects.create(dojo=Dojo.objects.get(id=5),first_name="John",last_name="Brick")
+Ninja.objects.create(dojo=Dojo.objects.get(id=5),first_name="Tom",last_name="Homes") 
+
+Query: Create 3 ninjas that belong to the second dojo
+Ninja.objects.create(dojo=Dojo.objects.get(id=6),first_name="Jane",last_name="Doe")
+Ninja.objects.create(dojo=Dojo.objects.get(id=6),first_name="John",last_name="Doe")
+Ninja.objects.create(dojo=Dojo.objects.get(id=6),first_name="Tom",last_name="Smith") 
+
+Query: Create 3 ninjas that belong to the third dojo  
+Ninja.objects.create(dojo=Dojo.objects.get(id=7),first_name="Liz",last_name="Homes")
+Ninja.objects.create(dojo=Dojo.objects.get(id=7),first_name="Tom",last_name="Doe")
+Ninja.objects.create(dojo=Dojo.objects.get(id=7),first_name="Allen",last_name="Dune")
+
+Query: Retrieve all the ninjas from the first dojo 
+first_dojo = Dojo.objects.get(id=5) 
+
+Query: Retrieve all the ninjas from the last dojo  
+third_dojo = Dojo.objects.get(id=7)
+
+Query: Retrieve the last ninja's dojo  
+last_ninja = Ninja.objects.last()
+last_ninja.dojo
+
+Add a new text field called "desc" to your Dojo class
+in Dojo model:
+    desc = models.TextField(default="old dojo")  
+Create and run the migration files to update the table in your database. If needed, provide a default value of "old dojo"  
+
+Query: Create a new dojo
+Dojo.objects.create(name="Coding Dojo - Seattle",city="Seattle",state="WA",desc="dojo in Seattle, WA")
