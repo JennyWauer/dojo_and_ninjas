@@ -3,3 +3,35 @@ body {
     margin-right: auto;
     width: 75%;
 }
+
+.forms {
+    display: flex;
+    justify-content: center;
+}
+
+.dojo, .ninja {
+    display: inline-block;
+    margin: 1em;
+    padding: 0.5em;
+}
+
+.dojo div, .ninja div {
+    display: block;
+    padding: 0.25em;
+}
+
+input, select {
+    margin-left: 1em;
+    float: right;
+    text-align: right;
+}
+
+.forms h1 {
+    text-align: center;
+}
+
+.dojo-list {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

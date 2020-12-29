@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,58 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Dojo and Ninjas</title>
 </head>
+
 <body>
-    <div class="dojo">
-        <h1>Add a Dojo</h1>
-        <form action="add_dojo" method="POST">
-            {% csrf_token %}
-            <label for="name">Name</label>
-            <input type="text" name="name">
-            <label for="city">City</label>
-            <input type="text" name="city">
-            <label for="state">State</label>
-            <input type="text" name="state">
-            <label for="desc">Description</label>
-            <input type="text" name="desc">
-            <input type="submit" name="submit" value="Add">
-        </form>
+    <div class="forms">
+        <div class="dojo">
+            <h1>Add a Dojo</h1>
+            <form action="add_dojo" method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" name="city">
+                </div>
+                <div>
+                    <label for="state">State</label>
+                    <input type="text" name="state">
+                </div>
+                <div>
+                    <label for="desc">Description</label>
+                    <input type="text" name="desc">
+                </div>
+                <input type="submit" name="submit" value="Add">
+            </form>
+        </div>
+        <div class="ninja">
+            <h1>Add a Ninja</h1>
+            <form action="add_ninja" method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name">
+                </div>
+                <div>
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="last_name">
+                </div>
+                <div>
+                    <label for="dojo">Dojo</label>
+                    <select name="dojo">
+                        <option value="">-select a dojo-</option>
+                        {% for dojo in dojo %}
+                        <option value="{{ dojo.name }}">{{ dojo.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" name="submit" value="Add">
+            </form>
+        </div>
     </div>
-    <div class="ninja">
-        <h1>Add a Ninja</h1>
-        <form action="add_ninja" method="POST">
-            {% csrf_token %}
-            <label for="first_name">First Name</label>
-            <input type="text" name="first_name">
-            <label for="last_name">Last Name</label>
-            <input type="text" name="last_name">
-            <label for="dojo">Dojo</label>
-            <select name="dojo">
-                <option value="">-select a dojo-</option>
-                {% for dojo in dojo%}
-                    <option value="{{ dojo.name }}">{{ dojo.name }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" name="submit" value="Add">
-        </form>
-    </div>
+    <div class="dojo-list">
     <h1>All the Dojos</h1>
     <ul>
         {% for dojo in dojo %}
@@ -53,5 +72,7 @@
         </li>
         {% endfor %}
     </ul>
+    </div>
 </body>
+
 </html>
